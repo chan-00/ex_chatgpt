@@ -1,8 +1,7 @@
-import {CenterContainer} from "@/component/atom/centerContainer";
-import {InputChattingContainer} from "@/component/molecule/inputChattingContainer";
+import {ChatArea} from "@/component/organism/chatArea";
 
 export default function ChatPage() {
     return (
-        <InputChattingContainer />
+        <ChatArea />
     )
 }

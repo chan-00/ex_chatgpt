@@ -9,12 +9,13 @@ interface InputType {
     placeholder: string;
     className?: string;
     type: string;
+    inputRef: React.RefObject<HTMLInputElement>
 }
 
-const Input = ({placeholder, type, className}: InputType) => {
+const Input = ({placeholder, type, className, inputRef}: InputType) => {
 
     return (
-        <InputStyle className={className} type={type} placeholder={placeholder} />
+        <InputStyle className={className} type={type} placeholder={placeholder} ref={inputRef} />
     );
 };
 

@@ -3,23 +3,28 @@ import {ChatLogBox} from "@/component/atom/chatLogBox";
 
 interface ChatLogAreaType {
     className?: string;
-    chatLog: Array<Array<string>>;
+    myChatLog: Array<string>;
+    otherChatLog: Array<string>;
 }
 
 const ChatLogAreaStyle = styled.div`
   width: 100%;
 `;
 
-const ChatLogArea = ({className, chatLog}: ChatLogAreaType) => {
+const ChatLogBoxStyle = styled(ChatLogBox)`
+  width: 40%;
+`;
+
+const ChatLogArea = ({className, myChatLog, otherChatLog}: ChatLogAreaType) => {
 
     return (
         <ChatLogAreaStyle className={className}>
-            {chatLog.map((chat: Array<string>) => {
+            {myChatLog.map((chat: string, index) => {
                 return (
-                    <>
-                        <ChatLogBox possession="my" text={chat[0]} />
-                        <ChatLogBox possession="other" text={chat[1]} />
-                    </>
+                    <div key={index}>
+                        <ChatLogBox possession="my" text={chat} />
+                        <ChatLogBox possession="other" text={otherChatLog[index]} />
+                    </div>
                 );
             })}
         </ChatLogAreaStyle>
