@@ -27,12 +27,16 @@ const InputChattingContainer = ({setMyChatLog, myChatLog, setOtherChatLog, other
     const inputRef = useRef<HTMLInputElement>(null);
 
     const handleClickEvent = () => {
-        const chatLogArrTemp: Array<string> = [...myChatLog];
+        const myChatLogArrTemp: Array<string> = [...myChatLog];
+        const otherChatLogArrTemp: Array<string> = [...otherChatLog];
+
         const inputValue = inputRef.current?.value;
 
         if(inputValue !== undefined) {
-            chatLogArrTemp.push(inputValue);
-            setMyChatLog(chatLogArrTemp);
+            myChatLogArrTemp.push(inputValue);
+            otherChatLogArrTemp.push("안녕하세요");
+            setMyChatLog(myChatLogArrTemp);
+            setOtherChatLog(otherChatLogArrTemp);
             if (inputRef.current) {
                 inputRef.current.value = "";
             }
